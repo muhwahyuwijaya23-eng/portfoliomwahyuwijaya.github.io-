@@ -1,0 +1,270 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR STYLES */
+.sidebar {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    position: fixed; /* Sidebar tetap di tempatnya */
+    height: 100%;
+}
+
+.profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #007BFF;
+}
+
+.profile h1 {
+    font-size: 1.5rem;
+    margin: 10px 0 5px;
+}
+
+.profile p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu ul li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.nav-menu ul li a:hover,
+.nav-menu ul li a.active {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.social-links {
+    margin-top: auto; /* Mendorong link sosial ke bagian bawah sidebar */
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.social-links a {
+    color: #007BFF;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* KONTEN UTAMA STYLES */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    margin-left: 250px; /* Offset agar konten tidak tertutup sidebar */
+}
+
+.section-content {
+    background: #fff;
+    padding: 40px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+h2 {
+    color: #007BFF;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* UTILITY CLASS UNTUK MENYEMBUNYIKAN HALAMAN */
+.hidden {
+    display: none;
+}
+
+/* RESUME STYLES */
+.resume-item {
+    margin-bottom: 30px;
+}
+
+.resume-item h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.resume-item h4 {
+    color: #007BFF;
+    margin: 0;
+}
+
+.resume-item p {
+    color: #777;
+}
+
+.resume-item ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* PORTFOLIO STYLES */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.portfolio-item img:hover {
+    transform: scale(1.05);
+}
+
+/* SERVICES STYLES */
+.services-list .service-item {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* CONTACT STYLES */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+}
+
+.contact-form button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* MEDIA QUERIES UNTUK TAMPILAN MOBILE */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+        box-shadow: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-menu ul li a {
+        padding: 5px 10px;
+        margin: 5px;
+    }
+
+    .social-links {
+        border-top: none;
+        margin-top: 10px;
+    }
+}
+/* === PROFESSIONAL DEVELOPMENT CARD GRID === */
+
+.certificate-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-top: 20px;
+}
+
+.certificate-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    border: 1px solid #e2e2e2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: 0.3s;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.certificate-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.certificate-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.certificate-desc {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.certificate-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.certificate-btn:hover {
+    background: #0056d2;
+}
