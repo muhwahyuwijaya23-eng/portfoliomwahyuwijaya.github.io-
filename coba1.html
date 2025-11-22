@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>professional portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        header {
+            background: #002b5c;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background: #004a99;
+            padding: 12px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            display: none;
+            padding: 25px;
+        }
+        .active {
+            display: block;
+        }
+        .profile-img {
+            width: 160px;
+            border-radius: 10px;
+        }
+
+        /* CERT GRID */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .cert-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .cert-card img {
+            width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cert-card img:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 15px;
+            text-align: center;
+            background: #002b5c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Portfolio Profesional</h1>
+</header>
+
+<nav>
+    <a href="#" onclick="show('home')">Home</a>
+    <a href="#" onclick="show('about')">About</a>
+    <a href="#" onclick="show('resume')">Resume</a>
+    <a href="#" onclick="show('dev')">Professional Development</a>
+    <a href="#" onclick="show('port')">Portfolio</a>
+    <a href="#" onclick="show('yt')">YouTube</a>
+    <a href="#" onclick="show('contact')">Contact</a>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="section active">
+    <h2>Home</h2>
+    <img src="foto.jpg" class="profile-img" alt="Foto Profil">
+    <p>I am a recent Informatics graduate with an interest in website development, production management, and organizational activities. During my studies, I became accustomed to working in teams, managing projects, and completing tasks in a structured manner. My experience in organization and production helped me develop communication, coordination, and creative problem-solving skills.
+In website development, I have experience creating and managing both front-end and back-end projects, and am familiar with using a variety of modern tools. I enjoy learning new things and adapt quickly to any technology or work environment.
+I am currently seeking opportunities to contribute to an innovative team while continuing to develop my technical and professional skills.</p>
+</section>
+<!-- ABOUT -->
+<section id="about" class="section">
+    <h2>About</h2>
+
+    <p><strong>Name:</strong> Muhammad Wahyu Wijaya</p>
+    <p><strong>Email:</strong> muhwahyuwijaya23@gmail.com</p>
+    <p><strong>Domicile:</strong> Simo Angin-Angin, Wonoayu, Sidoarjo</p>
+
+    <h3>Education</h3>
+    <ul>
+        <li>
+            <strong>Bachelor of Informatics Engineering – Maarif Hasyim Latif University | 2021 - 2025</strong><br>
+            <em>Thesis Title:</em> 
+            <strong>"Design and development of an Android-based RT service application using the priority scheduling method. Case study of Pejagalan Hamlet, RT 10 RW 04, Wonoayu District</strong><br>
+            <strong>IPK:</strong>3.27
+        </li>
+
+        <li>
+            <strong>Software Engineering – Krian 1 Vocational School, Sidoarjo</strong><br>
+            <strong>IPK/NEM:</strong>86
+        </li>
+    </ul>
+
+    <h3>Achievements</h3>
+    <ul>
+    <li>3rd Place in the Student Creativity Product Research Competition (PKM) – “Criskong: 
+    Cassava Skin Chips Innovation”, Maarif Hasyim Latif University, 2021.</li>
+</section>
+
+
+
+<section id="resume" class="section">
+    <h2>Resume</h2>
+
+    <!-- WORK EXPERIENCES -->
+    <h3>Work Experiences</h3>
+    <ul>
+        <li>
+            <strong>PT Domino Sukses Bersama | Operator Cutting Paper Machine | Oct 2023 - Jul 2025</strong>
+    <br>
+            Operated paper cutting machines (QZ), including machine setup, quality control, and arranging production output according to standards.<br>
+            Supported cross-divisional production processes, handled raw materials, inspected finished products, and multitasked to achieve daily and monthly targets<br>
+            Performed routine maintenance and minor repairs on cutting machines<br>
+            Maintained and cleaned production areas after operations<br>
+            Accurately recorded and documented production results in reports. 
+        <br>Monitored production targets posted on boards, marking achievements when targets were met</li>
+        </li>
+        <br>
+        <li>
+            <strong>CV Surya Pangan Lestari | Pour Production | Apr - Okt 2022</strong>
+            <br>
+            Prepared materials, installed roll films, and operated packaging machines to ensure smooth production processes
+        <br>
+        Handled QC complaints and maintained machine cleanliness and performance during and after shift changes
+        <br>
+            Organized containers neatly, ensuring raw wafer materials mixed with seasoning were properly sorted, and empty containers were ready for the conveyor to be filled by the seasoning mixer operator
+        <br>
+            Coordinated with team members to distribute containers, ensuring input materials for machines were always sufficient across 10 running machines
+        <br>
+            Assisted warehouse team in organizing finished products on pallets and returned to the 
+         production area promptly after one hour
+     </br>
+        </li>
+    </ul>
+
+    <!-- INTERNSHIP -->
+    <h3>internship experience</h3>
+    <ul>
+        <li>
+            <strong>PT Kosmetika Persael Abadi | Intern Staff | Mar - Apr 2024 </strong>
+            <br>
+            Developed a company profile website
+        <br>
+            Assisted in creating design content for Instagram, including posters and pamphlets
+        <br>      
+            Gained hands-on experience in digital marketing, content creation, and product packing by 
+        working directly with the production manager<br>
+    </br>            
+        <li>
+            <strong>CV Smart Jaya | Assistant Staff Intern | Jun - Dec 2019</strong>
+            <br>
+            Operated photocopy and banner printing machines; assisted in editing designs using Canva and CorelDraw
+        <br>
+            Managed customer service, including handling orders, packaging, and timely shipping via Wahana Express
+        <br>      
+            Maintained cleanliness and organization of the work area
+        <br>      
+            Assisted with book binding tasks<br>
+    </br>            
+    </ul>
+
+    <!-- ACHIEVEMENTS -->
+    <h3>Achievements</h3>
+    <ul>
+        <li>
+            <strong>Best Employee – PT Domino Sukses Bersama (Apr 2025)</strong>
+            <br>
+            Awarded for achieving the highest monthly production rate and maintaining consistent discipline.
+        </li>
+        <li>
+            <strong>Successfully achieved production targets of up to ±2.45 tons per month</strong>
+            <br>
+            (7–8 production batches) consistently. 
+        </li>
+        <li>
+            <strong>Best Production Team Member Snack – CV Surya Pangan Lestari</strong>
+            <br>
+            May 2022 Successfully achieved and exceeded monthly production targets, earning an additional bonus from the company
+        </li>
+        <li>
+            <strong>Successfully created a company profile website within 2 weeks as requested by the director</strong>
+            <br>
+            received positive feedback for the fast and accurate work.
+    </li>
+    </ul>
+</section>
+
+
+<!-- PROFESSIONAL DEVELOPMENT -->
+<section id="dev" class="section">
+    <h2>Professional Development</h2>
+    <p>Certificates of training & programs I attended:</p>
+
+    <div class="cert-grid">
+        <div class="cert-card">
+            <h3>National Certification Body for Professional Assessment in Software Engineering</h3>
+            <img src="sertifikat.jpg" alt="sertifikat" onclick="openImg(this.src)">
+        </div>
+
+        <div class="cert-card">
+            <h3>Basic Python Programming Language Training</h3>
+            <img src="sertifikat2.jpg" alt="Sertifikat 2" onclick="openImg(this.src)">
+        </div>
+
+        <div class="cert-card">
+            <h3>Digital Entrepreneurship Academy (DEA) Training | KOMINFO RI | 2021</h3>
+            <img src="DEA ACADEMY SIDOARJO.jpeg" alt="Sertifikat 3" onclick="openImg(this.src)">
+        </div>
+        <div class="cert-card">
+            <h3>Competency-Based Training for Intermediate Graphic Designers | BPVP SIDOARJO | 2023</h3>
+            <img src="sertifikat desain.jpg" alt="Sertifikat 3" onclick="openImg(this.src)">
+        </div>
+        <div class="cert-card">
+            <h3>Workshop Certificate Series 3 IoT & Android 2022</h3>
+            <img src="sertifikat webinar.jpg" alt="Sertifikat 3" onclick="openImg(this.src)">
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="port" class="section">
+    <h2>Portfolio</h2>
+    <p>Here are some of the work & projects I have done:</p>
+
+    <div class="cert-grid">
+
+        <div class="cert-card">
+            <h3>company profile website PT kosmetika Persael Abadi</h3>
+            <img src="websitecompanyprofile.png" onclick="openImg(this.src)">
+            <li>I developed the homepage of PT Kosmetika Persael Abadi's website, emphasizing functionality and user experience. The Home, Services, and Articles menu structures were designed to ensure easy navigation, organized information presentation, and efficient content integration. This project demonstrated my ability to design and implement responsive, user-oriented, and business-oriented web solutions—a relevant competency to support the digitalization and system development process in the Bank BUMN ODP program</li>
+        </div>
+
+        <div class="cert-card">
+            <h3>RT Service Application Study Case Pejagalan Hamlet RT 10 RW 04 Wonoayu District</h3>
+            <img src="Aplikasirt.png" onclick="openImg(this.src)">
+            <li>Android Application for Digitizing Neighborhood Association (RT/RW) Administration
+This application is designed to simplify the digital management of administration and public services at the neighborhood association (RT/RW) level. Features include resident data management, financial record keeping, and an electronic correspondence system to support transparency and efficiency in public services. The system is built using Laravel for the backend, Vue.js for the frontend, and MySQL as the main database. This application is available in mobile format (Android) for easy access by both administrators and residents.t</li>
+        </div>
+
+        <div class="cert-card">
+            <h3>Desktop-Based Tuition Payment with Automatic NISN Feature For Ngimbangan Elementary School, Mojosari District</h3>
+            <img src="VB Excel.jpg" onclick="openImg(this.src)">
+            <li>This desktop-based tuition payment application was developed using Visual Basic (VBA) macros in Microsoft Excel to simplify school administration processes. The system features an automatic National Student Registration (NISN) feature, allowing student data to be detected and displayed quickly without manual input.
+Key features include payment recording, checking paid/overdue status, automatic report generation, and data validation to minimize input errors. This project demonstrates the ability to build a simple, efficient, structured, and easy-to-use desktop solution for operational needs</li>
+        </div>
+
+    </div>
+</section>
+
+<!-- YOUTUBE -->
+<section id="yt" class="section">
+    <h2>YouTube</h2>
+    <p>Visit my channel:</p>
+    <a href="https://www.youtube.com/@muhammadwahyuwijaya8093" target="_blank">YouTube Channel Mwahyuwijaya</a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/muhammadwahyu-wijaya-01511225a/">linkedin.com</a></p>
+    <p>GitHub: <a href="#">github.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/reel/DRKRMOjCB7v/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">official Instagram</a></p>
+    <p>Telegram: <a href="T.me/@wahyuw23">Official Telegram</a></p>
+    <p>TikTok: <a href="https://www.tiktok.com/@mwahyuw23?is_from_webapp=1&sender_device=pc">tiktok.com</a>Tiktok Official</p>
+    <p>whatsaap: <a href="https://api.whatsapp.com/send?phone=6285707966022&text=ada%20yang%20bisa%20saya%20bantu">Wa official</a></p>
+</section>
+
+<footer>
+    © 2025 Portfolio ODP BUMN – Muhammad Wahyu Wijaya
+</footer>
+
+<script>
+function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+function openImg(src) {
+    const w = window.open();
+    w.document.write('<img src="' + src + '" style="width:100%">');
+}
+</script>
+
+</body>
+</html>
