@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Iuran - Admin RTRW</title>
+    <link href="./bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="./css/custom.css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <div class="admin-profile">
+                <img src="https://via.placeholder.com/60" alt="Admin Avatar">
+                <div class="admin-name">Admin RTRW</div>
+                <div class="admin-role">Admin</div>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="index.html" class="list-group-item list-group-item-action dropdown-toggle" data-bs-toggle="collapse" href="#menuCollapse" role="button" aria-expanded="false" aria-controls="menuCollapse">
+                    <i class="fas fa-bars"></i> Menu
+                </a>
+                <div class="collapse show" id="menuCollapse">
+                    <a href="data-warga.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Warga
+                    </a>
+                    <a href="data-pengaduan.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Pengaduan
+                    </a>
+                    <a href="daftar-informasi.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Informasi
+                    </a>
+                    <a href="data-iuran.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Iuran Warga
+                    </a>
+                    <a href="daftar-pembayaran.html" class="list-group-item list-group-item-action active">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Pembayaran
+                    </a>
+                </div>
+
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="fas fa-layer-group"></i> Multi Level Example
+                </a>
+                <a href="login.html" class="list-group-item list-group-item-action">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-sm btn-outline-secondary d-md-none" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand d-none d-md-block" href="#">RTRW - Apps</a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-icons-end">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle badge-icon badge-danger" href="#" id="navbarDropdownNotification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="badge rounded-pill bg-danger">7</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownNotification">
+                                    <li><a class="dropdown-item" href="#">Notification 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Notification 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle badge-icon badge-warning" href="#" id="navbarDropdownMessage" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-envelope"></i>
+                                    <span class="badge rounded-pill bg-warning text-dark">3</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMessage">
+                                    <li><a class="dropdown-item" href="#">Message 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Message 2</a></li>
+                                </ul>
+                            </li>
+                             <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGrid" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-th-large"></i> </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownGrid">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user-circle"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid mt-4">
+                <h1 class="header-title">Tambah Iuran</h1>
+
+                <div class="card">
+                    <form>
+                        <div class="mb-3">
+                            <label for="judulIuran" class="form-label">Judul Iuran</label>
+                            <input type="text" class="form-control" id="judulIuran" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" rows="6"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nominal" class="form-label">Nominal</label>
+                            <input type="number" class="form-control" id="nominal" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="jatuhTempo" class="form-label">Jatuh Tempo</label>
+                            <div class="input-group date-input">
+                                <input type="text" class="form-control" id="jatuhTempo" placeholder="mm/dd/yyyy">
+                                <span class="input-group-text">
+                                    <i class="far fa-calendar-alt"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <button type="submit" class="btn btn-primary me-2">Simpan</button>
+                            <a href="data-iuran.html" class="btn btn-secondary">Kembali</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid text-center">
+                    Copyright &copy; 2014-2021 Mlangkah.Co. All rights reserved. <span class="ms-3 version-text">Version 3.1.0</span>
+                </div>
+            </footer>
+        </div>
+        </div>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sidebarToggle = document.getElementById('sidebarToggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    document.getElementById('wrapper').classList.toggle('toggled');
+                });
+            }
+
+            const currentPath = window.location.pathname.split('/').pop();
+            const sidebarLinks = document.querySelectorAll('#sidebar-wrapper .list-group-item');
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+                // For sub-items, check if parent is active
+                if (link.closest('.collapse') && link.closest('.collapse').classList.contains('show')) {
+                    const parentToggle = link.closest('.collapse').previousElementSibling;
+                    if (parentToggle && parentToggle.classList.contains('dropdown-toggle')) {
+                        parentToggle.classList.add('active');
+                    }
+                }
+                // Highlight 'Iuran Warga' menu item when on its related pages
+                if (currentPath === 'data-iuran.html' || currentPath === 'tambah-iuran.html' || currentPath === 'edit-iuran.html') {
+                    const iuranLink = document.querySelector('a[href="data-iuran.html"]');
+                    if (iuranLink) {
+                        iuranLink.classList.add('active');
+                        const parentMenu = document.querySelector('#sidebar-wrapper .list-group-item[data-bs-toggle="collapse"]');
+                        if (parentMenu) {
+                             parentMenu.classList.add('active');
+                             const collapseTarget = document.querySelector(parentMenu.getAttribute('href'));
+                             if (collapseTarget && !collapseTarget.classList.contains('show')) {
+                                 new bootstrap.Collapse(collapseTarget, { toggle: true });
+                             }
+                         }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

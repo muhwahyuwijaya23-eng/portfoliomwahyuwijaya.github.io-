@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Warga - Admin RTRW</title>
+    <link href="./bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="./css/custom.css" rel="stylesheet">
+    <style>
+        /* CSS kustom dari base template di atas, atau bisa dipindahkan ke custom.css */
+        body { background-color: #f8f9fa; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        #wrapper { display: flex; min-height: 100vh; }
+        #sidebar-wrapper { min-width: 250px; max-width: 250px; background-color: #343a40; color: #fff; padding-top: 15px; transition: all 0.3s; }
+        #sidebar-wrapper .list-group { width: 100%; }
+        #sidebar-wrapper .list-group-item { background-color: #343a40; color: #adb5bd; border: none; padding: 10px 15px; font-size: 0.95rem; display: flex; align-items: center;}
+        #sidebar-wrapper .list-group-item:hover, #sidebar-wrapper .list-group-item.active { background-color: #0d6efd; color: #fff; }
+        #sidebar-wrapper .list-group-item i { margin-right: 10px; width: 20px; text-align: center; }
+        #sidebar-wrapper .list-group-item.dropdown-toggle::after { margin-left: auto; }
+        #sidebar-wrapper .collapse .list-group-item { padding-left: 35px; background-color: #495057; }
+        #sidebar-wrapper .collapse .list-group-item:hover { background-color: #0d6efd; }
+        .admin-profile { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 15px; }
+        .admin-profile img { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 10px; border: 2px solid #0d6efd; }
+        .admin-profile .admin-name { font-weight: bold; color: #fff; }
+        .admin-profile .admin-role { font-size: 0.85rem; color: #adb5bd; }
+        .navbar { background-color: #ffffff; border-bottom: 1px solid #dee2e6; padding: 1rem 1.5rem; }
+        .navbar-brand { font-weight: bold; color: #343a40 !important; }
+        .navbar .nav-link { color: #495057 !important; padding: 0.5rem 1rem; }
+        .navbar .nav-link:hover { color: #0d6efd !important; }
+        .navbar .form-control { border-radius: 0.25rem; border-color: #ced4da; }
+        .navbar .btn-outline-success { color: #0d6efd; border-color: #0d6efd; }
+        .navbar .btn-outline-success:hover { background-color: #0d6efd; color: #fff; }
+        .navbar .nav-item .dropdown-toggle::after { display: none; }
+        .navbar .nav-item .nav-link i { font-size: 1.1rem; color: #6c757d; }
+        .navbar .nav-item .nav-link i:hover { color: #0d6efd; }
+        .navbar .nav-item .nav-link.badge-icon { position: relative; }
+        .navbar .nav-item .nav-link.badge-icon .badge { position: absolute; top: 5px; right: 5px; padding: 0.35em 0.6em; font-size: 0.75em; line-height: 1; }
+        .navbar .nav-item .nav-link.badge-icon.badge-danger .badge { background-color: #dc3545 !important; color: #fff; }
+        .navbar .nav-item .nav-link.badge-icon.badge-warning .badge { background-color: #ffc107 !important; color: #212529; }
+        .navbar .nav-item .nav-link.badge-icon.badge-success .badge { background-color: #198754 !important; color: #fff; }
+        .navbar-icons-end .nav-item { margin-left: 10px; }
+        #page-content-wrapper { flex-grow: 1; padding: 20px; }
+        .header-title { font-size: 1.75rem; font-weight: 600; color: #343a40; margin-bottom: 20px; }
+        .card { border: none; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); padding: 20px; }
+        .form-label { font-weight: 500; color: #343a40; }
+        .form-control { border-radius: 0.25rem; border-color: #ced4da; }
+        .form-control:focus { border-color: #86b7fe; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25); }
+        .form-section-title { font-size: 1.25rem; font-weight: 600; margin-top: 30px; margin-bottom: 20px; color: #343a40; }
+        .table-responsive { margin-top: 0; }
+        .table thead th { background-color: #e9ecef; border-bottom: 2px solid #dee2e6; font-weight: 600; color: #495057; }
+        .table tbody tr:nth-child(even) { background-color: #f2f2f2; }
+        .table tbody tr:hover { background-color: #e9e9e9; }
+        .btn-edit, .btn-delete { padding: 0.25rem 0.75rem; font-size: 0.8rem; line-height: 1.5; border-radius: 0.2rem; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+        .btn-edit { background-color: #ffc107; color: #212529; border-color: #ffc107; }
+        .btn-edit:hover { background-color: #e0a800; border-color: #d39e00; color: #212529; }
+        .btn-delete { background-color: #dc3545; color: #fff; border-color: #dc3545; }
+        .btn-delete:hover { background-color: #c82333; border-color: #bd2130; color: #fff; }
+        .btn-tambah-warga { background-color: #0d6efd; color: #fff; border-color: #0d6efd; font-size: 0.9rem; padding: 0.5rem 1rem; border-radius: 0.25rem; margin-bottom: 15px; }
+        .btn-tambah-warga:hover { background-color: #0b5ed7; border-color: #0a58ca; }
+        .btn-action { margin-right: 10px; }
+        .btn-action i { margin-right: 5px; }
+        .footer { padding: 1rem 0; border-top: 1px solid #dee2e6; background-color: #f8f9fa; color: #6c757d; font-size: 0.85rem; text-align: center; margin-top: 30px; }
+        .footer .version-text { font-weight: bold; color: #0d6efd; }
+        html, body { overflow-x: hidden; }
+        #wrapper.toggled #sidebar-wrapper { margin-left: -250px; }
+        @media (max-width: 768px) { #wrapper #sidebar-wrapper { margin-left: -250px; } #wrapper.toggled #sidebar-wrapper { margin-left: 0; } #sidebarToggle { display: block !important; } }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <div class="admin-profile">
+                <img src="https://via.placeholder.com/60" alt="Admin Avatar">
+                <div class="admin-name">Admin RTRW</div>
+                <div class="admin-role">Admin</div>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="index.html" class="list-group-item list-group-item-action dropdown-toggle" data-bs-toggle="collapse" href="#menuCollapse" role="button" aria-expanded="false" aria-controls="menuCollapse">
+                    <i class="fas fa-bars"></i> Menu
+                </a>
+                <div class="collapse show" id="menuCollapse">
+                    <a href="data-warga.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Warga
+                    </a>
+                    <a href="data-pengaduan.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Pengaduan
+                    </a>
+                    <a href="daftar-informasi.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Informasi
+                    </a>
+                    <a href="data-iuran.html" class="list-group-item list-group-item-action">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Iuran Warga
+                    </a>
+                    <a href="daftar-pembayaran.html" class="list-group-item list-group-item-action active">
+                        <i class="fas fa-circle" style="font-size: 0.5rem; margin-right: 15px; color: #adb5bd;"></i> Pembayaran
+                    </a>
+                </div>
+
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="fas fa-layer-group"></i> Multi Level Example
+                </a>
+                <a href="login.html" class="list-group-item list-group-item-action">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-sm btn-outline-secondary d-md-none" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand d-none d-md-block" href="#">RTRW - Apps</a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-icons-end">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle badge-icon badge-danger" href="#" id="navbarDropdownNotification" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-bell"></i>
+                                    <span class="badge rounded-pill bg-danger">7</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownNotification">
+                                    <li><a class="dropdown-item" href="#">Notification 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Notification 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle badge-icon badge-warning" href="#" id="navbarDropdownMessage" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-envelope"></i>
+                                    <span class="badge rounded-pill bg-warning text-dark">3</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMessage">
+                                    <li><a class="dropdown-item" href="#">Message 1</a></li>
+                                    <li><a class="dropdown-item" href="#">Message 2</a></li>
+                                </ul>
+                            </li>
+                             <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownGrid" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-th-large"></i> </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownGrid">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user-circle"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid mt-4">
+                <h1 class="header-title">Data Warga</h1>
+
+                <div class="card">
+                    <a href="tambah-warga.html" class="btn btn-primary btn-tambah-warga mb-3">
+                        Tambah Warga
+                    </a>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Nama</th>
+                                    <th>Alamat</th>
+                                    <th>RT</th>
+                                    <th>RW</th>
+                                    <th>No Telepon</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Tejo Pangestu Wijaya</td>
+                                    <td>Jl. Kenanga No 45</td>
+                                    <td>02</td>
+                                    <td>01</td>
+                                    <td>08123456789</td>
+                                    <td>
+                                        <a href="edit-warga.html" class="btn btn-edit btn-sm me-1">Edit</a>
+                                        <button class="btn btn-delete btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Siti Aminah</td>
+                                    <td>Jl. Melati No. 9</td>
+                                    <td>04</td>
+                                    <td>01</td>
+                                    <td>0821355927812</td>
+                                    <td>
+                                        <a href="edit-warga.html" class="btn btn-edit btn-sm me-1">Edit</a>
+                                        <button class="btn btn-delete btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Dodit Mulyanto</td>
+                                    <td>Jl. Melati No. 17</td>
+                                    <td>04</td>
+                                    <td>01</td>
+                                    <td>0821355927822</td>
+                                    <td>
+                                        <a href="edit-warga.html" class="btn btn-edit btn-sm me-1">Edit</a>
+                                        <button class="btn btn-delete btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Abdul Rozak</td>
+                                    <td>Jl Anggrek No 16A</td>
+                                    <td>03</td>
+                                    <td>01</td>
+                                    <td>086868909872</td>
+                                    <td>
+                                        <a href="edit-warga.html" class="btn btn-edit btn-sm me-1">Edit</a>
+                                        <button class="btn btn-delete btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Muhammad Sobirin</td>
+                                    <td>Jl Melati No. 19B</td>
+                                    <td>03</td>
+                                    <td>01</td>
+                                    <td>0865124352490</td>
+                                    <td>
+                                        <a href="edit-warga.html" class="btn btn-edit btn-sm me-1">Edit</a>
+                                        <button class="btn btn-delete btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Budi Doremi</td>
+                                    <td>Jl Manggis No 7 B</td>
+                                    <td>05</td>
+                                    <td>01</td>
+                                    <td>08177654971776</td>
+                                    <td>
+                                        <a href="edit-warga.html" class="btn btn-edit btn-sm me-1">Edit</a>
+                                        <button class="btn btn-delete btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tri Ananda Muklas</td>
+                                    <td>Jl Durian No 12B</td>
+                                    <td>04</td>
+                                    <td>01</td>
+                                    <td>081233454890</td>
+                                    <td>
+                                        <a href="edit-warga.html" class="btn btn-edit btn-sm me-1">Edit</a>
+                                        <button class="btn btn-delete btn-sm">Hapus</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid text-center">
+                    Copyright &copy; 2014-2021 Mlangkah.Co. All rights reserved. <span class="ms-3 version-text">Version 3.1.0</span>
+                </div>
+            </footer>
+        </div>
+        </div>
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/custom.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sidebarToggle = document.getElementById('sidebarToggle');
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    document.getElementById('wrapper').classList.toggle('toggled');
+                });
+            }
+
+            const currentPath = window.location.pathname.split('/').pop();
+            const sidebarLinks = document.querySelectorAll('#sidebar-wrapper .list-group-item');
+
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === currentPath) {
+                    link.classList.add('active');
+                }
+                // For sub-items, check if parent is active
+                if (link.closest('.collapse') && link.closest('.collapse').classList.contains('show')) {
+                    const parentToggle = link.closest('.collapse').previousElementSibling;
+                    if (parentToggle && parentToggle.classList.contains('dropdown-toggle')) {
+                        parentToggle.classList.add('active');
+                    }
+                }
+                 // Handle index.html for "Menu" and its sub-items
+                if (currentPath === 'index.html' && link.getAttribute('href') === 'index.html') {
+                    link.classList.add('active');
+                }
+                if (currentPath === 'data-warga.html' && link.getAttribute('href') === 'data-warga.html') {
+                     link.classList.add('active');
+                     const parentMenu = document.querySelector('#sidebar-wrapper .list-group-item[data-bs-toggle="collapse"]');
+                     if (parentMenu) {
+                         parentMenu.classList.add('active');
+                         const collapseTarget = document.querySelector(parentMenu.getAttribute('href'));
+                         if (collapseTarget && !collapseTarget.classList.contains('show')) {
+                             new bootstrap.Collapse(collapseTarget, { toggle: true });
+                         }
+                     }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RTRW - Apps</title>
+    <link href="./bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+            width: 100%;
+            max-width: 400px; /* Max width similar to the image */
+            text-align: center;
+        }
+        .login-box .app-name {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+        .login-box .sign-in-text {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+        .input-group-text {
+            background-color: #e9ecef;
+            border-right: none;
+        }
+        .form-control:focus + .input-group-text {
+            border-color: #86b7fe; /* Bootstrap primary focus color */
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        .form-control {
+            border-left: none;
+        }
+        .form-check-label {
+            font-size: 0.9rem;
+        }
+        .btn-login {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+        }
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        .forgot-password a {
+            color: #0d6efd;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <div class="app-name">RTRW - Apps</div>
+        <p class="sign-in-text">Sign in to start your session</p>
+
+        <form action="#" method="POST"> <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Username">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="Password">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            </div>
+            <div class="row align-items-center mb-4">
+                <div class="col-7">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">
+                            Remember Me
+                        </label>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <button type="submit" class="btn btn-primary btn-login">Log In</button>
+                </div>
+            </div>
+            <p class="forgot-password">
+                <a href="#">I forgot my password</a>
+            </p>
+        </form>
+    </div>
+
+    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
